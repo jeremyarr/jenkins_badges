@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+#wsgi files
+*.wsgi
+
+#production config file
+prod_pyjcb.yaml

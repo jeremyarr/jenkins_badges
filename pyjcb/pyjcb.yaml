@@ -1,0 +1,5 @@
+#the jenkins job path url.
+#make sure anonymous users have read access 
+#example: http://example.com/jenkins/job/
+
+jenkins_base_url: "http://example.com/jenkins/job/"
