@@ -27,7 +27,7 @@ Quickstart
 
 **In Browser:**
 
-6: http://localhost:5000/<JenkinsJobName>
+6: http://localhost:5000/JenkinsJobName
 
 
 
