@@ -1,9 +1,11 @@
-from flask import Flask,redirect
+from flask import Flask,redirect,send_file
 import requests
 import json
 import yaml
 import os
 import traceback
+import shutil
+import io
 from collections import namedtuple
 app = Flask(__name__)
 
@@ -22,11 +24,17 @@ def send_badge(job_name):
         c = extract_coverage(coverage_dict)
         badge_url = generate_badge_url(c)
         print("generated badge {}".format(badge_url))
-        return redirect(badge_url)
+        badge_resp = requests.get(badge_url,stream=True)
+        print(badge_resp.content)
+
+        full_file_path = io.BytesIO(badge_resp.content)
+
+        return send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=10)
     except Exception as e:
         tb_str = traceback.format_exc()
         print(tb_str)
-        return redirect(error_badge)
+        full_file_path = "{}/error_badge.svg".format(APP_ROOT)
+        return send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=10)
 
 def generate_api_url(job_name):
     full_file_path = "{}/pyjcb.yaml".format(APP_ROOT)
@@ -52,7 +60,7 @@ def extract_coverage(coverage_dict):
 
 def generate_badge_url(c):
     return ("https://img.shields.io/badge/coverage-{}25-{}.svg"
-            "?maxAge=30".format(c.formatted,c.colour))
+            "?maxAge=2".format(c.formatted,c.colour))
 
 def get_colour(cov_raw):
     if cov_raw < 20:
