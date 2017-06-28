@@ -5,6 +5,7 @@ Requirements
 -------------
 - Jenkins
 - Jenkins cobertura plugin
+- read access for Anonymous users in Jenkins
 - requests
 - pyyaml
 - flask
