@@ -29,6 +29,9 @@ Quickstart
 
 6: http://localhost:5000/JenkinsJobName
 
+**Result:**
+
+![Example Result](https://img.shields.io/badge/coverage-80.00%25-brightgreen.svg?maxAge=30)
 
 
 
