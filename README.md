@@ -31,7 +31,7 @@ Quickstart
 
 **Result:**
 
-![Example Result](https://img.shields.io/badge/coverage-80.00%25-brightgreen.svg?maxAge=30)
+![Example Result](https://img.shields.io/badge/coverage-82.75%25-brightgreen.svg?maxAge=30)
 
 
 
