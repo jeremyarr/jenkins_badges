@@ -17,8 +17,15 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 @app.route("/<job_name>",methods=['GET'])
 def send_badge(job_name):
     try:
-        jenkins_api_url = generate_api_url(job_name)
-        jenkins_resp = requests.get(jenkins_api_url)
+        conf_data = get_conf_data()
+        print("job name1={}".format(job_name))
+        jenkins_api_url = generate_api_url(job_name,conf_data)
+        print(jenkins_api_url)
+        if conf_data['username'] and conf_data['token']:
+            jenkins_resp = requests.get(jenkins_api_url,auth=(conf_data['username'],conf_data['token']))
+        else:
+            jenkins_resp = requests.get(jenkins_api_url)
+
         print("jenkins resp = {}".format(jenkins_resp.text))
         coverage_dict = jenkins_resp.json()
         c = extract_coverage(coverage_dict)
@@ -28,15 +35,16 @@ def send_badge(job_name):
         print(badge_resp.content)
 
         full_file_path = io.BytesIO(badge_resp.content)
-
-        return send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=10)
+        resp = send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=30)
+        print(resp.headers)
+        return resp
     except Exception as e:
         tb_str = traceback.format_exc()
         print(tb_str)
         full_file_path = "{}/error_badge.svg".format(APP_ROOT)
-        return send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=10)
+        return send_file(full_file_path, mimetype="image/svg+xml",cache_timeout=30)
 
-def generate_api_url(job_name):
+def get_conf_data():
     full_file_path = "{}/pyjcb.yaml".format(APP_ROOT)
     prod_full_file_path = "{}/prod_pyjcb.yaml".format(APP_ROOT)
     if os.path.isfile(prod_full_file_path):
@@ -44,7 +52,13 @@ def generate_api_url(job_name):
 
     with open(full_file_path,"r") as f:
         conf_data = yaml.load(f)
-        base_url = conf_data["jenkins_base_url"] 
+
+    return conf_data
+
+def generate_api_url(job_name,conf_data):
+    base_url = conf_data["jenkins_base_url"] 
+
+    print("job name2={}".format(job_name))
 
     return ("{}/{}/"
            "lastSuccessfulBuild/cobertura/api/json/?depth=2"
