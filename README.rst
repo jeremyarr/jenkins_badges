@@ -1,5 +1,3 @@
-.. highlight:: python
-
 jenkins_badges
 ================
 A teeny tiny flask server that provides badge images based on data from jenkins
@@ -34,7 +32,17 @@ jenkins_badges can be run in an interpreter:
  app = jenkins_badges.create_app()
  app.run()
 
+it can also be placed inside a wsgi file:
 
+.. code:: python
+
+  #exampleapp.wsgi
+  
+  import os
+  os.environ['JENKINS_BADGES_SETTINGS'] = '/home/ubuntu/.jenkins_badges'
+  from jenkins_badges import create_app
+  application = create_app()
+  
 
 
 
