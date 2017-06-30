@@ -1,1 +1,1 @@
-include pyjcb/pyjcb.yaml pyjcb/error_badge.svg
+include pyjcb/error_badge.svg
