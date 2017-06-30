@@ -1,1 +1,1 @@
-include pyjcb/error_badge.svg
+recursive-include pyjcb/coverage_badge/static *

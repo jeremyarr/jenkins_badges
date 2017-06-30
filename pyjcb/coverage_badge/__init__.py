@@ -16,7 +16,6 @@ def send_coverage_badge(job_name):
     auth = (current_app.config['JENKINS_USERNAME'],
             current_app.config['JENKINS_TOKEN'])
     auth = None if auth==(None,None) else auth
-    print(auth)
     jresp = requests.get(jurl,auth=auth)
     print("GET {} {}".format(jresp.status_code, jurl))
     if jresp.status_code != 200:
