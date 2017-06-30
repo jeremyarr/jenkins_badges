@@ -1,1 +1,1 @@
-recursive-include pyjcb/coverage_badge/static *
+recursive-include jenkins_badges/coverage_badge/static *

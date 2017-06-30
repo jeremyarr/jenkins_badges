@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='pyjcb',
+    name='jenkins_badges',
     version='1.0',
-    packages=['pyjcb','pyjcb.coverage_badge'],
+    packages=['jenkins_badges','jenkins_badges.coverage_badge'],
     long_description='some description',
     include_package_data=True,
     install_requires=[

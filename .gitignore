@@ -105,4 +105,4 @@ ENV/
 *.wsgi
 
 #production config file
-.pyjcb
+.jenkins_badges
