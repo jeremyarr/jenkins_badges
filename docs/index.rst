@@ -14,9 +14,9 @@ Supported badges
 -----------------
 
 +---------+----------------------------------------+----------------------------------+
-|coverage | .. image:: _static/coverage_green.svg  | default: 70% +                   |
+|coverage | .. image:: _static/coverage_green.svg  | default: 80% +                   |
 +         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_yellow.svg | default: 20%-70%                 |
+|         | .. image:: _static/coverage_yellow.svg | default: 20%-80%                 |
 +         +----------------------------------------+----------------------------------+
 |         | .. image:: _static/coverage_red.svg    | default: < 20%                   |
 +         +----------------------------------------+----------------------------------+

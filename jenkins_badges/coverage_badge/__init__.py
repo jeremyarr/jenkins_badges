@@ -7,7 +7,7 @@ Coverage = namedtuple("Coverage",["formatted","colour"])
 
 coverage_badge = Blueprint('coverage_badge',__name__)
 
-@coverage_badge.route("/<job_name>",methods=['GET'])
+@coverage_badge.route("/coverage/<job_name>",methods=['GET'])
 def send_coverage_badge(job_name):
     if job_name == "favicon.ico":
         return "",200

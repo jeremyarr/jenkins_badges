@@ -10,9 +10,9 @@ Supported badges
 -----------------
 
 +---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|coverage | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | default: 70% +                   |
+|coverage | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | default: 80% +                   |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | default: 20%-70%                 |
+|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | default: 20%-80%                 |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
 |         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg               | default: < 20%                   |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
