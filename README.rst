@@ -9,15 +9,15 @@
 Supported badges
 -----------------
 
-+---------+-----------------------------------------------------------------------------------------------------+----------------------------------+
-|coverage | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_green.svg  | default: 70% +                   |
-+         +-----------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_yellow.svg | default: 20%-70%                 |
-+         +-----------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_red.svg    | default: < 20%                   |
-+         +-----------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_error.svg  | error getting coverage data      |
-+---------+-----------------------------------------------------------------------------------------------------+----------------------------------+
++---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|coverage | .. image:: https://raw.githubusercontent.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg  | default: 70% +                   |
++         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://raw.githubusercontent.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg | default: 20%-70%                 |
++         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://raw.githubusercontent.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg    | default: < 20%                   |
++         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://raw.githubusercontent.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_error.svg  | error getting coverage data      |
++---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
 
 
 Get it now
