@@ -1,7 +1,4 @@
-==============
-jenkins_badges
-==============
-
+.. image:: docs/_static/logo_full.png
 
 .. image:: https://badge.fury.io/py/jenkins-badges.svg
     :target: https://badge.fury.io/py/jenkins-badges
@@ -12,15 +9,15 @@ jenkins_badges
 Supported badges
 -----------------
 
-+---------+-----------------------------------------------+----------------------------------+
-|coverage | .. image:: ./docs/_static/coverage_green.svg  | default: 70% +                   |
-+         +-----------------------------------------------+----------------------------------+
-|         | .. image:: ./docs/_static/coverage_yellow.svg | default: 20%-70%                 |
-+         +-----------------------------------------------+----------------------------------+
-|         | .. image:: ./docs/_static/coverage_red.svg    | default: < 20%                   |
-+         +-----------------------------------------------+----------------------------------+
-|         | .. image:: ./docs/_static/coverage_error.svg  | error getting coverage data      |
-+---------+-----------------------------------------------+----------------------------------+
++---------+-----------------------------------------------------------------------------------------------------+----------------------------------+
+|coverage | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_green.svg  | default: 70% +                   |
++         +-----------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_yellow.svg | default: 20%-70%                 |
++         +-----------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_red.svg    | default: < 20%                   |
++         +-----------------------------------------------------------------------------------------------------+----------------------------------+
+|         | .. image:: https://github.com/jeremyarr/jenkins_badges/blob/master/docs/_static/coverage_error.svg  | error getting coverage data      |
++---------+-----------------------------------------------------------------------------------------------------+----------------------------------+
 
 
 Get it now
@@ -110,3 +107,8 @@ License
 -------
 
 MIT licensed. See the bundled `LICENSE <https://github.com/jeremyarr/jenkins_badges/blob/master/LICENSE>`_ file for more details.
+  
+
+
+
+
