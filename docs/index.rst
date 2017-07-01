@@ -1,6 +1,6 @@
-===============
-jenkins_badges
-===============
+
+.. image:: _static/logo_full.png
+
 
 Current version: v\ |version|.
 
