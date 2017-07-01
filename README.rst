@@ -1,47 +1,114 @@
+==============
 jenkins_badges
-================
-A teeny tiny flask server that provides badge images based on data from jenkins
+===============
 
-Supported Badges
-----------------
-- coverage, e.g 
-.. image:: https://img.shields.io/badge/coverage-82.75%25-brightgreen.svg?maxAge=30
+.. image:: https://badge.fury.io/py/jenkins-badges.svg
+    :target: https://badge.fury.io/py/jenkins-badges
 
 
-Requirements
--------------
-- Jenkins with cobertura plugin
-- requests
-- flask
+`jenkins_badges` is a small flask app that provides badge images that can be used to indicate project status.
 
-Installation
--------------
+Supported badges
+-----------------
 
-jenkins_badges can be installed via pip::
++---------+----------------------------------------+----------------------------------+
+|coverage | .. image:: _static/coverage_green.svg  | default: 70% +                   |
++         +----------------------------------------+----------------------------------+
+|         | .. image:: _static/coverage_yellow.svg | default: 20%-70%                 |
++         +----------------------------------------+----------------------------------+
+|         | .. image:: _static/coverage_red.svg    | default: < 20%                   |
++         +----------------------------------------+----------------------------------+
+|         | .. image:: _static/coverage_error.svg  | error getting coverage data      |
++---------+----------------------------------------+----------------------------------+
 
-  pip install jenkins_badges
 
+Get it now
+-----------
+
+With pip:
+**********
+
+.. code-block:: bash
+
+    $ pip install jenkins_badges
+
+Jenkins Requirements
+----------------------
+`jenkins_badges` communicates with your Jenkins instance over the `Jenkins API <https://wiki.jenkins.io/display/JENKINS/Remote+access+API>`_ . You need to either set up up the `anonymous` user in Jenkins with read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access.
+
+For the coverage badge to work, your Jenkins instance must have the `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_ installed with coverage data being supplied to it after every successful build.
+
+You can test out whether `jenkins_badges` will be able to communicate with Jenkins by performing the following API request:
+
+Linux:
+
+.. code-block:: bash
+
+    $ curl http<s>://<path to your jenkins instance>/job/<job name>/lastSuccessfulBuild/cobertura/api/json/?depth=2
+
+Sample Output:
+
+.. code-block:: console
+
+    {"_class":"hudson.plugins.cobertura.targets.CoverageResult","results":{"children":[{"children":[{}],"elements":[{},{},{},{}],"name":"marbl"}],"elements":[{"denominator":1.0,"name":"Packages","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Files","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Classes","numerator":1.0,"ratio":100.0},{"denominator":5.0,"name":"Lines","numerator":4.0,"ratio":80.0},{"denominator":0.0,"name":"Conditionals","numerator":0.0,"ratio":100.0}],"name":"Cobertura Coverage Report"}}
 
 Quickstart
------------
-jenkins_badges can be run in an interpreter:
+----------
 
-.. code:: python
+`jenkins_badges` needs to be provided with information about your jenkins instance. This can be provided as arguments to the `create_app` function or via a configuration file.
 
- import jenkins_badges
- app = jenkins_badges.create_app()
- app.run()
+Supplying configuration parameters directly
+**********************************************
 
-it can also be placed inside a wsgi file:
+1. create and run the app
 
-.. code:: python
+.. code-block:: python
 
-  #exampleapp.wsgi
-  
-  import os
-  os.environ['JENKINS_BADGES_SETTINGS'] = '/home/ubuntu/.jenkins_badges'
-  from jenkins_badges import create_app
-  application = create_app()
+    import jenkins_badges
+
+    #path to your jenkins instance
+    base_url = "https://example.com/jenkins" 
+
+    # not required if anonymous jenkins user has read access
+    username = "apiuser" #a user with read access
+    token = "6c3bde145bcda49402b6914f2353a734" #user's token
+
+    app = jenkins_badges.create_app(base_url=base_url,
+                                    username=username,
+                                    token=token)
+    app.run()
+
+Output:
+
+.. code-block:: console
+
+    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+2. Your coverage badge image should be accessible at `http://127.0.0.1:5000/coverage/<JenkinsJobName>`
+
+
+More at https://jenkins-badges.readthedocs.io
+----------------------------------------------
+
+Project Links
+-------------
+
+- Docs: https://jenkins-badges.readthedocs.io/
+- Changelog: https://jenkins-badges.readthedocs.io/en/latest/changelog.html
+- PyPI: https://pypi.python.org/pypi/jenkins-badges
+- Issues: https://github.com/jeremyarr/jenkins_badges/issues
+
+Kudos
+-----
+
+- Idea came from mnpk's `jenkins-coverage-badge <https://github.com/mnpk/jenkins-coverage-badge>`_ written in nodeJS.
+- `shields.io <https://shields.io/>`_ for providing scalable badges over a clean API
+- `Jenkins <https://jenkins.io/>`_ for being...jenkins
+
+License
+-------
+
+MIT licensed. See the bundled `LICENSE <https://github.com/jeremyarr/jenkins_badges/blob/master/LICENSE>`_ file for more details.
   
 
 
