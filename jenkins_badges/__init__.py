@@ -1,6 +1,15 @@
+'''
+hello 123
+'''
 from flask import Flask
 
 def create_app(base_url=None,username=None,token=None):
+    '''
+    creates the flask application object
+    username: jenkins username
+    token: username token
+    base url: jenkins base url
+    '''
     app = Flask(__name__)
     if not base_url:
         app.config['JENKINS_USERNAME'] = None
