@@ -1,6 +1,7 @@
 ==============
 jenkins_badges
-===============
+==============
+
 
 .. image:: https://badge.fury.io/py/jenkins-badges.svg
     :target: https://badge.fury.io/py/jenkins-badges
@@ -11,15 +12,15 @@ jenkins_badges
 Supported badges
 -----------------
 
-+---------+----------------------------------------+----------------------------------+
-|coverage | .. image:: _static/coverage_green.svg  | default: 70% +                   |
-+         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_yellow.svg | default: 20%-70%                 |
-+         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_red.svg    | default: < 20%                   |
-+         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_error.svg  | error getting coverage data      |
-+---------+----------------------------------------+----------------------------------+
++---------+---------------------------------------------+----------------------------------+
+|coverage | .. image:: docs/_static/coverage_green.svg  | default: 70% +                   |
++         +---------------------------------------------+----------------------------------+
+|         | .. image:: docs/_static/coverage_yellow.svg | default: 20%-70%                 |
++         +---------------------------------------------+----------------------------------+
+|         | .. image:: docs/_static/coverage_red.svg    | default: < 20%                   |
++         +---------------------------------------------+----------------------------------+
+|         | .. image:: docs/_static/coverage_error.svg  | error getting coverage data      |
++---------+---------------------------------------------+----------------------------------+
 
 
 Get it now
@@ -109,8 +110,3 @@ License
 -------
 
 MIT licensed. See the bundled `LICENSE <https://github.com/jeremyarr/jenkins_badges/blob/master/LICENSE>`_ file for more details.
-  
-
-
-
-
