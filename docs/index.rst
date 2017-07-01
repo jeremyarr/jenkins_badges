@@ -1,10 +1,12 @@
 
 .. image:: _static/logo_full.png
 
+welcome to jenkins_badges
+==========================
 
 Current version: v\ |version|.
 
-`jenkins_badges` is a small flask app that provides dynamic badge images to indicate project status.
+`jenkins_badges` is a small flask app that provides dynamic badge images based on data from Jenkins CI.
 
 .. contents::
    :local:

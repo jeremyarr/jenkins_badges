@@ -4,7 +4,7 @@
     :target: https://badge.fury.io/py/jenkins-badges
 
 
-`jenkins_badges` is a small flask app that provides dynamic badge images to indicate project status.
+`jenkins_badges` is a small flask app that provides dynamic badge images based on data from Jenkins CI.
 
 Supported badges
 -----------------
