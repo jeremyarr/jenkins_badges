@@ -92,6 +92,7 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {}
+# html_theme_options = {"github_fork":"jeremyarr/jenkins_badges"}
 # html_theme_options = {"github_fork":"jeremyarr/jenkins_badges",
 #                       "index_logo":"logo_full.png"}
 

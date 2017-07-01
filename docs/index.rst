@@ -152,8 +152,7 @@ If your readme file uses restructuredText:
 WSGI Example
 -------------
 
-Just like any Flask app, a `jenkins_badges` app can be placed on a server with WSGI support,
-by creating a wsgi file:
+Just like any Flask app, a `jenkins_badges` app can be placed on a server with WSGI support:
 
 .. code:: python
 

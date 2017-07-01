@@ -38,7 +38,7 @@ def send_error_badge():
     return send_file(path, mimetype="image/svg+xml",cache_timeout=30), 200
 
 def generate_jenkins_api_url(job_name):
-    return ("{}/{}/"
+    return ("{}/job/{}/"
            "lastSuccessfulBuild/cobertura/api/json/?depth=2"
            "").format(current_app.config["JENKINS_BASE_URL"],job_name)
 
