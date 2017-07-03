@@ -1,0 +1,1 @@
+Source code for `jenkins_badges` can be found `here <https://github.com/jeremyarr/jenkins_badges>`_ . New issues, feature requests and pull requests are all welcome.
