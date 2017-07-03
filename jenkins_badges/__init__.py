@@ -16,19 +16,19 @@ def create_app(from_envvar=False,base_url=None,username=None,token=None,
     :param from_envvar: if True, configuration parameters are sourced from file referenced by the local JENKINS_BADGES_SETTINGS environmental variable. if False, configuration parameters are sourced from the arguments.
     :type from_envvar: bool
 
-    :param base_url: url of jenkins instance. Must be supplied if from_envvar=False. 
+    :param base_url: url of Jenkins instance. Must be supplied if from_envvar=False. 
     :type base_url: str
 
-    :param username: username of jenkins user
+    :param username: username of Jenkins user
     :type username: str
 
-    :param token: jenkins user's token
+    :param token: token of Jenkins user
     :type token: str
 
-    :param coverage_yellow: threshold for displaying yellow coverage colour.
+    :param coverage_yellow: threshold for displaying yellow coverage colour. Coverage below this threshold and above the coverage_red threshold will be shown with a yellow background. Coverage above this threshold will be shown with a green background.
     :type coverage_yellow: int
 
-    :param coverage_red: threshold for displaying red coverage colour. 
+    :param coverage_red: threshold for displaying red coverage colour. Coverage below this threshold will be shown with a red background.
     :type coverage_red: int
 
     :param coverage_decimal_points: number of decimal points displayed on badge for coverage figure.
