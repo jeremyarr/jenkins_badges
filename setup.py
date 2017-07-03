@@ -17,6 +17,7 @@ setup(
     install_requires=[
         'flask',
         'requests',
+        'six',
     ],
     zip_safe=False,
     author="Jeremy Arr",
@@ -34,9 +35,8 @@ setup(
         'Intended Audience :: Developers',
         'Framework :: Flask',
         'License :: OSI Approved :: MIT License',
-        'Operating System :: POSIX :: Linux',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Testing'
     ]
 )

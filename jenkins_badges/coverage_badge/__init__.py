@@ -2,7 +2,8 @@ from flask import send_file, Blueprint,current_app
 import requests
 import io
 from collections import namedtuple
-from urllib.parse import urljoin
+
+from six.moves.urllib_parse import urljoin
 
 Coverage = namedtuple("Coverage",["formatted","colour"])
 
