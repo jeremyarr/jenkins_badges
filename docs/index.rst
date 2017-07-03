@@ -1,5 +1,6 @@
 
 .. image:: _static/logo_full.png
+.. module:: jenkins_badges
 
 welcome to jenkins_badges
 ==========================
