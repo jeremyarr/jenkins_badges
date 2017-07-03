@@ -214,7 +214,7 @@ Sample Output:
 API
 ----
 
-hi
+The jenkins_badges API is pretty simple, consisting of one function. Under the covers, the app is divided into flask blueprints, which allows it to be easily extended in the future.
 
 .. automodule:: jenkins_badges
     :members:
