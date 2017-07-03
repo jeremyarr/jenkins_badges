@@ -20,6 +20,8 @@ welcome to jenkins_badges
 .. image:: https://img.shields.io/pypi/implementation/jenkins-badges.svg
     :target: https://pypi.python.org/pypi/jenkins-badges
 
+Latest Version: **v|version|**
+
 `jenkins_badges <https://github.com/jeremyarr/jenkins_badges>`_ is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
 .. contents::

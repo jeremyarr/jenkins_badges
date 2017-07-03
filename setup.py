@@ -1,8 +1,15 @@
 from setuptools import setup
+import os
+
+here = os.path.abspath(os.path.dirname(__file__))
+
+about = {}
+with open(os.path.join(here, 'jenkins_badges', '__version__.py'), 'r') as f:
+    exec(f.read(), about)
 
 setup(
     name='jenkins_badges',
-    version='1.1.1',
+    version=about['__version__'],
     packages=['jenkins_badges','jenkins_badges.coverage_badge'],
     description="provides badge images based on jenkins data",
     long_description='A flask server that provides badge images based on data from jenkins',
@@ -23,7 +30,7 @@ setup(
               "github"],
     url="https://github.com/jeremyarr/jenkins_badges",
     classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Framework :: Flask',
         'License :: OSI Approved :: MIT License',

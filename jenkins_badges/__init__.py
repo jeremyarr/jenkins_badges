@@ -2,10 +2,9 @@
 `jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 '''
 
-__version__ = "1.1.1"
+from .__version__ import __version__
 
 from flask import Flask
-
 
 def create_app(from_envvar=False,base_url=None,username=None,token=None,
                coverage_yellow=80, coverage_red=20,
