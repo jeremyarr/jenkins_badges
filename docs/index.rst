@@ -20,7 +20,7 @@ welcome to jenkins_badges
 .. image:: https://img.shields.io/pypi/implementation/jenkins-badges.svg
     :target: https://pypi.python.org/pypi/jenkins-badges
 
-`jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
+`jenkins_badges <https://github.com/jeremyarr/jenkins_badges>`_ is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
 .. contents::
    :local:
@@ -44,8 +44,6 @@ Supported Badges
 
 Get it now
 -----------
-
-api found here :ref:`api`
 
 With pip:
 **********
@@ -219,9 +217,10 @@ The jenkins_badges API is pretty simple, consisting of one function. Under the c
 .. automodule:: jenkins_badges
     :members:
 
+Contributing
+-------------
 
-
-
+.. include:: ../CONTRIBUTING.rst
 
 Project info
 ------------
