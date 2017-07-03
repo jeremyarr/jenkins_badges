@@ -2,11 +2,13 @@
 flake8:
 	flake8 --ignore=E501,F401,E128,E402,E731,F821 jenkins_badges
 
-publish:
-	pip install 'twine>=1.5.0'
+package:
+	rm -rf build dist .egg jenkins_badges.egg-info
 	python setup.py sdist bdist_wheel
+
+publish:
 	twine upload dist/*
-	rm -fr build dist .egg jenkins_badges.egg-info
+	rm -rf build dist .egg jenkins_badges.egg-info
 
 docs:
 	cd docs && make html

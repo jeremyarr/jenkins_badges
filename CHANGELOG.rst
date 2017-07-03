@@ -17,3 +17,8 @@ Changelog
 
 - default arguments supplied in __init__.py instead of default_settings.py
 - version string added
+
+1.2.0 (2017-07-03)
+******************
+
+- now compatible with python 2.7+
