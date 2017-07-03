@@ -214,6 +214,8 @@ Sample Output:
 API
 ----
 
+hi
+
 .. automodule:: jenkins_badges
     :members:
 
