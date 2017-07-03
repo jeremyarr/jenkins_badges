@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='jenkins_badges',
-    version='1.0',
+    version='1.1.0',
     packages=['jenkins_badges','jenkins_badges.coverage_badge'],
     description="provides badge images based on jenkins data",
     long_description='A flask server that provides badge images based on data from jenkins',

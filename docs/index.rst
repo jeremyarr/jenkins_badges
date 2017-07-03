@@ -4,7 +4,11 @@
 welcome to jenkins_badges
 ==========================
 
-Current version: v\ |version|.
+.. image:: https://img.shields.io/pypi/v/jenkins-badges.svg
+.. image:: https://img.shields.io/pypi/l/jenkins-badges.svg
+.. image:: https://img.shields.io/pypi/pyversions/jenkins-badges.svg
+.. image::  https://img.shields.io/pypi/status/jenkins-badges.svg
+.. image:: https://img.shields.io/pypi/implementation/jenkins-badges.svg
 
 `jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
