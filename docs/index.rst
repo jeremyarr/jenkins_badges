@@ -44,6 +44,8 @@ Supported Badges
 Get it now
 -----------
 
+api found here :ref:`api`
+
 With pip:
 **********
 
@@ -207,6 +209,16 @@ Sample Output:
 .. code-block:: console
 
     {"_class":"hudson.plugins.cobertura.targets.CoverageResult","results":{"children":[{"children":[{}],"elements":[{},{},{},{}],"name":"marbl"}],"elements":[{"denominator":1.0,"name":"Packages","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Files","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Classes","numerator":1.0,"ratio":100.0},{"denominator":5.0,"name":"Lines","numerator":4.0,"ratio":80.0},{"denominator":0.0,"name":"Conditionals","numerator":0.0,"ratio":100.0}],"name":"Cobertura Coverage Report"}}
+
+API
+----
+
+.. automodule:: jenkins_badges
+    :members:
+
+
+
+
 
 Project info
 ------------
