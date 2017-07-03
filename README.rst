@@ -1,27 +1,36 @@
 .. image:: docs/_static/logo_full.png
 
 .. image:: https://img.shields.io/pypi/v/jenkins-badges.svg
+    :target: https://pypi.python.org/pypi/jenkins-badges
+
 .. image:: https://img.shields.io/pypi/l/jenkins-badges.svg
+    :target: https://pypi.python.org/pypi/jenkins-badges
+
 .. image:: https://img.shields.io/pypi/pyversions/jenkins-badges.svg
+    :target: https://pypi.python.org/pypi/jenkins-badges
+
 .. image::  https://img.shields.io/pypi/status/jenkins-badges.svg
+    :target: https://pypi.python.org/pypi/jenkins-badges
+
 .. image:: https://img.shields.io/pypi/implementation/jenkins-badges.svg
+    :target: https://pypi.python.org/pypi/jenkins-badges
 
 
 `jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
 Supported badges
 -----------------
-+---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|Badge    | Examples                                                                                                      | Default                          |
-+=========+===============================================================================================================+==================================+
-|coverage | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | 80% +                            |
-+         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | 20%-80%                          |
-+         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg               | < 20%                            |
-+         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_error.svg             | error getting coverage data      |
-+---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|Endpoint              | Examples                                                                                                      | Default                          |
++======================+===============================================================================================================+==================================+
+|coverage/<JenkinsJob> | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | 80% +                            |
++                      +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|                      | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | 20%-80%                          |
++                      +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|                      | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg               | < 20%                            |
++                      +---------------------------------------------------------------------------------------------------------------+----------------------------------+
+|                      | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_error.svg             | error getting coverage data      |
++----------------------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
 
 
 Get it now
