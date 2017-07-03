@@ -4,17 +4,18 @@
     :target: https://badge.fury.io/py/jenkins-badges
 
 
-`jenkins_badges` is a small flask app that provides dynamic badge images based on data from Jenkins CI.
+`jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
 Supported badges
 -----------------
-
 +---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|coverage | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | default: 80% +                   |
+|Badge    | Examples                                                                                                      | Default                          |
++=========+===============================================================================================================+==================================+
+|coverage | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_green.svg             | 80% +                            |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | default: 20%-80%                 |
+|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_yellow.svg            | 20%-80%                          |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
-|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg               | default: < 20%                   |
+|         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_red.svg               | < 20%                            |
 +         +---------------------------------------------------------------------------------------------------------------+----------------------------------+
 |         | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_error.svg             | error getting coverage data      |
 +---------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
@@ -35,20 +36,6 @@ Jenkins Requirements
 `jenkins_badges` communicates with your Jenkins instance over the `Jenkins API <https://wiki.jenkins.io/display/JENKINS/Remote+access+API>`_ . You need to either set up up the `anonymous` user in Jenkins with read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access.
 
 For the coverage badge to work, your Jenkins instance must have the `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_ installed with coverage data being supplied to it after every successful build.
-
-You can test out whether `jenkins_badges` will be able to communicate with Jenkins by performing the following API request:
-
-Linux:
-
-.. code-block:: bash
-
-    $ curl http<s>://<path to your jenkins instance>/job/<job name>/lastSuccessfulBuild/cobertura/api/json/?depth=2
-
-Sample Output:
-
-.. code-block:: console
-
-    {"_class":"hudson.plugins.cobertura.targets.CoverageResult","results":{"children":[{"children":[{}],"elements":[{},{},{},{}],"name":"marbl"}],"elements":[{"denominator":1.0,"name":"Packages","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Files","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Classes","numerator":1.0,"ratio":100.0},{"denominator":5.0,"name":"Lines","numerator":4.0,"ratio":80.0},{"denominator":0.0,"name":"Conditionals","numerator":0.0,"ratio":100.0}],"name":"Cobertura Coverage Report"}}
 
 Quickstart
 ----------

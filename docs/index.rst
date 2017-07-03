@@ -6,7 +6,7 @@ welcome to jenkins_badges
 
 Current version: v\ |version|.
 
-`jenkins_badges` is a small flask app that provides dynamic badge images based on data from Jenkins CI.
+`jenkins_badges` is a small flask app that serves dynamic badge images based on data from Jenkins CI.
 
 .. contents::
    :local:
@@ -16,11 +16,13 @@ Supported badges
 -----------------
 
 +---------+----------------------------------------+----------------------------------+
-|coverage | .. image:: _static/coverage_green.svg  | default: 80% +                   |
+|Badge    | Examples                               | Default                          |
++=========+========================================+==================================+
+|coverage | .. image:: _static/coverage_green.svg  | 80% +                            |
 +         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_yellow.svg | default: 20%-80%                 |
+|         | .. image:: _static/coverage_yellow.svg | 20%-80%                          |
 +         +----------------------------------------+----------------------------------+
-|         | .. image:: _static/coverage_red.svg    | default: < 20%                   |
+|         | .. image:: _static/coverage_red.svg    | < 20%                            |
 +         +----------------------------------------+----------------------------------+
 |         | .. image:: _static/coverage_error.svg  | error getting coverage data      |
 +---------+----------------------------------------+----------------------------------+
@@ -41,20 +43,6 @@ Jenkins Requirements
 `jenkins_badges` communicates with your Jenkins instance over the `Jenkins API <https://wiki.jenkins.io/display/JENKINS/Remote+access+API>`_ . You need to either set up up the `anonymous` user in Jenkins with read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access.
 
 For the coverage badge to work, your Jenkins instance must have the `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_ installed with coverage data being supplied to it after every successful build.
-
-You can test out whether `jenkins_badges` will be able to communicate with Jenkins by performing the following API request:
-
-Linux:
-
-.. code-block:: bash
-
-    $ curl http<s>://<path to your jenkins instance>/job/<job name>/lastSuccessfulBuild/cobertura/api/json/?depth=2
-
-Sample Output:
-
-.. code-block:: console
-
-    {"_class":"hudson.plugins.cobertura.targets.CoverageResult","results":{"children":[{"children":[{}],"elements":[{},{},{},{}],"name":"marbl"}],"elements":[{"denominator":1.0,"name":"Packages","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Files","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Classes","numerator":1.0,"ratio":100.0},{"denominator":5.0,"name":"Lines","numerator":4.0,"ratio":80.0},{"denominator":0.0,"name":"Conditionals","numerator":0.0,"ratio":100.0}],"name":"Cobertura Coverage Report"}}
 
 Quickstart
 ----------
@@ -120,7 +108,7 @@ Linux:
 
     import jenkins_badges
 
-    app = jenkins_badges.create_app()
+    app = jenkins_badges.create_app(from_envvar=True)
     app.run()
 
 Output:
@@ -168,13 +156,44 @@ Just like any Flask app, a `jenkins_badges` app can be placed on a server with W
     #name of app must be "application"
     application = create_app()
 
+Comparison with Shields.io API
+--------------------------------------------------------
+`shields.io <https://shields.io>`_ has a simple API for accessing Jenkins coverage data, **providing your Jenkins anonymous user is granted read access**:
+
+    `https://img.shields.io/jenkins/c/<scheme>/<jenkins host>/job/<Jenkins Job>.svg`
+
+`shields.io` also hard codes badge colours and the number of decimal points. `jenkins_badges` is more suited if you want finer control of how your coverage badge is displayed or if you only allow authenticated users to access your jenkins instance.
+
 
 Responsiveness
 ---------------
-`jenkins_badges` serves badge images with a "maxAge" `cache-control` header value of 30 seconds. As long as the server hosting your documentation respects `cache-control` headers, your badge should update on a page refresh after a jenkins build.
+`jenkins_badges` serves badge images with a "maxAge" `cache-control` header value of 30 seconds. It does not perform redirects to `shields.io` due to GitHub's well known `badge caching problems <https://github.com/sbts/github-badge-cache-buster/blob/master/README.md>`_. As long as the server hosting your documentation respects `cache-control` headers, your badge should update on a page refresh after a jenkins build.
 
 The responsiveness of images served by `jenkins_badges` has been successfully tested on readme pages hosted by GitHub.
 
+
+
+Troubleshooting:
+-----------------
+
+Coverage error badge displayed
+*******************************
+
+Problem communicating with Jenkins.
+
+You can test out whether `jenkins_badges` will be able to communicate with Jenkins by performing the following API request:
+
+Linux:
+
+.. code-block:: bash
+
+    $ curl http<s>://<path to your jenkins instance>/job/<job name>/lastSuccessfulBuild/cobertura/api/json/?depth=2
+
+Sample Output:
+
+.. code-block:: console
+
+    {"_class":"hudson.plugins.cobertura.targets.CoverageResult","results":{"children":[{"children":[{}],"elements":[{},{},{},{}],"name":"marbl"}],"elements":[{"denominator":1.0,"name":"Packages","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Files","numerator":1.0,"ratio":100.0},{"denominator":1.0,"name":"Classes","numerator":1.0,"ratio":100.0},{"denominator":5.0,"name":"Lines","numerator":4.0,"ratio":80.0},{"denominator":0.0,"name":"Conditionals","numerator":0.0,"ratio":100.0}],"name":"Cobertura Coverage Report"}}
 
 Project info
 ------------

@@ -48,7 +48,11 @@ def extract_coverage(jresp):
         if d['name'] == "Lines":
             cov_raw = d['ratio']
             colour = get_colour(cov_raw)
-            formatted = "{:.2f}%".format(cov_raw)
+            formatted = "{:.{}f}%".format(cov_raw,current_app.config["COVERAGE_DECIMAL_POINTS"])
+            print("cov_raw={}, formatted={}, dp = {}".format(cov_raw,formatted,current_app.config["COVERAGE_DECIMAL_POINTS"]))
+            
+
+            # formatted = "{:.2f}%".format(cov_raw)
             return Coverage(formatted=formatted,colour=colour)
 
 def generate_shields_url(c):
@@ -56,9 +60,9 @@ def generate_shields_url(c):
             "?maxAge=2".format(c.formatted,c.colour))
 
 def get_colour(cov_raw):
-    if cov_raw < 20:
+    if cov_raw < current_app.config["COVERAGE_RED"]:
         return "red"
-    elif cov_raw < 80:
+    elif cov_raw < current_app.config["COVERAGE_YELLOW"]:
         return "yellow"
     else:
         return "brightgreen"
