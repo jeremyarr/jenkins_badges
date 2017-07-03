@@ -2,6 +2,7 @@ from flask import send_file, Blueprint,current_app
 import requests
 import io
 from collections import namedtuple
+from urllib.parse import urljoin
 
 Coverage = namedtuple("Coverage",["formatted","colour"])
 
@@ -38,9 +39,10 @@ def send_error_badge():
     return send_file(path, mimetype="image/svg+xml",cache_timeout=30), 200
 
 def generate_jenkins_api_url(job_name):
-    return ("{}/job/{}/"
-           "lastSuccessfulBuild/cobertura/api/json/?depth=2"
-           "").format(current_app.config["JENKINS_BASE_URL"],job_name)
+    api_endpoint = ("job/{}/lastSuccessfulBuild/cobertura/api/json/?depth=2"
+           "").format(job_name)
+
+    return urljoin(current_app.config["JENKINS_BASE_URL"]+"/",api_endpoint)
 
 def extract_coverage(jresp):
     coverage_dict = jresp.json()
@@ -49,15 +51,11 @@ def extract_coverage(jresp):
             cov_raw = d['ratio']
             colour = get_colour(cov_raw)
             formatted = "{:.{}f}%".format(cov_raw,current_app.config["COVERAGE_DECIMAL_POINTS"])
-            print("cov_raw={}, formatted={}, dp = {}".format(cov_raw,formatted,current_app.config["COVERAGE_DECIMAL_POINTS"]))
-            
-
-            # formatted = "{:.2f}%".format(cov_raw)
             return Coverage(formatted=formatted,colour=colour)
 
 def generate_shields_url(c):
     return ("https://img.shields.io/badge/coverage-{}25-{}.svg"
-            "?maxAge=2".format(c.formatted,c.colour))
+            "".format(c.formatted,c.colour))
 
 def get_colour(cov_raw):
     if cov_raw < current_app.config["COVERAGE_RED"]:
