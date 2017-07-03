@@ -6,7 +6,8 @@ from .__version__ import __version__
 
 from flask import Flask
 
-def create_app(from_envvar=False,base_url=None,username=None,token=None,
+
+def create_app(from_envvar=False, base_url=None, username=None, token=None,
                coverage_yellow=80, coverage_red=20,
                coverage_decimal_points=2):
     '''
@@ -15,7 +16,7 @@ def create_app(from_envvar=False,base_url=None,username=None,token=None,
     :param from_envvar: if True, configuration parameters are sourced from file referenced by the local JENKINS_BADGES_SETTINGS environmental variable. if False, configuration parameters are sourced from the arguments.
     :type from_envvar: bool
 
-    :param base_url: url of Jenkins instance. Must be supplied if from_envvar=False. 
+    :param base_url: url of Jenkins instance. Must be supplied if from_envvar=False.
     :type base_url: str
 
     :param username: username of Jenkins user
@@ -55,7 +56,3 @@ def create_app(from_envvar=False,base_url=None,username=None,token=None,
     app.register_blueprint(coverage_badge)
 
     return app
-
-
-
-
