@@ -38,6 +38,7 @@ Features
 - Badge won't get stale.
 - Configurable coverage level colours
 - Compatible with private Jenkins instances
+- WSGI server compatible
 
 Get it now
 -----------
