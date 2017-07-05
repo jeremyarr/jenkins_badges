@@ -45,17 +45,12 @@ With pip:
 
 Jenkins Requirements
 ----------------------
-`jenkins_badges` communicates with your Jenkins instance over the `Jenkins API <https://wiki.jenkins.io/display/JENKINS/Remote+access+API>`_ . You need to either set up up the `anonymous` user in Jenkins with read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access.
+- The `anonymous` user in Jenkins has read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access (see below).
+- Jenkins `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_
 
-For the coverage badge to work, your Jenkins instance must have the `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_ installed with coverage data being supplied to it after every successful build.
 
 Quickstart
 ----------
-
-`jenkins_badges` needs to be provided with information about your jenkins instance. This can be provided as arguments to the `create_app` function or via a configuration file.
-
-Supplying configuration parameters directly
-**********************************************
 
 1. create and run the app
 
