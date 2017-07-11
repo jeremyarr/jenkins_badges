@@ -32,6 +32,13 @@ Supported badges
 |                      | .. image:: https://cdn.rawgit.com/jeremyarr/jenkins_badges/master/docs/_static/coverage_error.svg             | error getting coverage data      |
 +----------------------+---------------------------------------------------------------------------------------------------------------+----------------------------------+
 
+Features
+-----------------
+
+- Badge won't get stale.
+- Configurable coverage level colours
+- Compatible with private Jenkins instances
+- WSGI server compatible
 
 Get it now
 -----------
@@ -45,19 +52,14 @@ With pip:
 
 Jenkins Requirements
 ----------------------
-`jenkins_badges` communicates with your Jenkins instance over the `Jenkins API <https://wiki.jenkins.io/display/JENKINS/Remote+access+API>`_ . You need to either set up up the `anonymous` user in Jenkins with read access or supply `jenkins_badges` with the credentials of a jenkins user who has read access.
+- The `anonymous` user has read access or supply `jenkins_badges` with the credentials of a user who does (see below).
+- `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_
 
-For the coverage badge to work, your Jenkins instance must have the `Cobertura plugin <https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin>`_ installed with coverage data being supplied to it after every successful build.
 
 Quickstart
 ----------
 
-`jenkins_badges` needs to be provided with information about your jenkins instance. This can be provided as arguments to the `create_app` function or via a configuration file.
-
-Supplying configuration parameters directly
-**********************************************
-
-1. create and run the app
+1. create app
 
 .. code-block:: python
 
@@ -73,6 +75,12 @@ Supplying configuration parameters directly
     app = jenkins_badges.create_app(base_url=base_url,
                                     username=username,
                                     token=token)
+
+
+2. run it!
+
+.. code-block:: python
+
     app.run()
 
 Output:
@@ -80,6 +88,8 @@ Output:
 .. code-block:: console
 
     * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+
 
 2. Your coverage badge image should be accessible at `http://127.0.0.1:5000/coverage/<JenkinsJobName>`
 
