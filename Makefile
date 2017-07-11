@@ -4,7 +4,7 @@ flake8:
 
 package:
 	rm -rf build dist .egg jenkins_badges.egg-info
-	python setup.py sdist bdist_wheel
+	python setup.py release sdist bdist_wheel
 
 publish:
 	twine upload dist/*
