@@ -24,7 +24,7 @@ import sys
 here = os.path.abspath(os.path.dirname(__file__))
 
 about = {}
-with open(os.path.join(here, 'jenkins_badges', '__version__.py'), 'r') as f:
+with open(os.path.join(here,"..",'jenkins_badges', '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
 
